@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "c1a7ac95-c139-4577-b3f6-0eb1e80f46ee",
+		"name": "DCE-Samples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Export",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": {
+						"accessToken": "",
+						"tokenType": "Bearer",
+						"addTokenTo": "header"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{       \r\n    \"properties\": {\r\n        \"schedule\": {\r\n            \"status\": \"Active\",\r\n            \"recurrence\": \"Daily\",\r\n            \"recurrencePeriod\": {\r\n                \"from\": \"2020-10-02T00:00:00Z\", // must be future datetime\r\n                \"to\": \"2050-02-01T08:00:00Z\"\r\n            }\r\n        },                \r\n        \"format\": \"Csv\",\r\n        \"deliveryInfo\": {\r\n            \"destination\": {\r\n                \"resourceId\": \"/subscriptions/{{subscriptionId}}/resourceGroups/{{resourcegroup}}/providers/Microsoft.Storage/storageAccounts/{{storageaccount}}\",\r\n                \"container\": \"billing\", // update this value\r\n                \"rootFolderPath\": \"exports\" // update this value\r\n            }\r\n        },\r\n        \"definition\": {\r\n            \"type\": \"Usage\",\r\n            \"timeframe\": \"MonthToDate\",\r\n            \"dataSet\": {\r\n                \"granularity\": \"Daily\"\r\n            }\r\n        }\r\n    }\r\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.CostManagement/exports/demoexport?api-version=2020-06-01",
+					"protocol": "https",
+					"host": [
+						"management",
+						"azure",
+						"com"
+					],
+					"path": [
+						"subscriptions",
+						"{{subscriptionId}}",
+						"providers",
+						"Microsoft.CostManagement",
+						"exports",
+						"demoexport"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Export",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": {
+						"accessToken": "",
+						"tokenType": "Bearer",
+						"addTokenTo": "header"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.CostManagement/exports?api-version=2020-06-01",
+					"protocol": "https",
+					"host": [
+						"management",
+						"azure",
+						"com"
+					],
+					"path": [
+						"subscriptions",
+						"{{subscriptionId}}",
+						"providers",
+						"Microsoft.CostManagement",
+						"exports"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Export",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": {
+						"accessToken": "",
+						"tokenType": "Bearer",
+						"addTokenTo": "header"
+					}
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://management.azure.com/subscriptions/{{subscriptionId}}/providers/Microsoft.CostManagement/exports/demoexport?api-version=2020-06-01",
+					"protocol": "https",
+					"host": [
+						"management",
+						"azure",
+						"com"
+					],
+					"path": [
+						"subscriptions",
+						"{{subscriptionId}}",
+						"providers",
+						"Microsoft.CostManagement",
+						"exports",
+						"demoexport"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2020-06-01"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
