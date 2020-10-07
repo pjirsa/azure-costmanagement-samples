@@ -105,3 +105,4 @@ dist
 
 # Azure Credentials
 *.azureauth
+.idea
