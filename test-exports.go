@@ -22,7 +22,8 @@ func main() {
 }
 
 func ListExports(ctx context.Context) {
-	scope := "subscriptions/" + config.SubscriptionID()
+	//scope := "subscriptions/" + config.SubscriptionID()
+	scope := fmt.Sprintf("/providers/Microsoft.Management/managementGroups/%s/", config.ManagementGroupId())
 
 	resp, err := export.List(ctx, scope)
 

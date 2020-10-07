@@ -22,6 +22,7 @@ func ParseEnvironment() error {
 	baseGroupName = os.Getenv("AZURE_BASE_GROUP_NAME")
 
 	locationDefault = os.Getenv("AZURE_LOCATION_DEFAULT")
+	managementGroupId = os.Getenv("AZURE_MANAGEMENT_GROUP_ID")
 
 	//var err error
 	useDeviceFlow, err = strconv.ParseBool(os.Getenv("AZURE_USE_DEVICEFLOW"))

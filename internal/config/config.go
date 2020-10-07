@@ -18,6 +18,7 @@ var (
 	clientSecret           string
 	tenantID               string
 	subscriptionID         string
+	managementGroupId      string
 	locationDefault        string
 	authorizationServerURL string
 	cloudName              string = "AzurePublicCloud"
@@ -47,6 +48,10 @@ func TenantID() string {
 // SubscriptionID is a target subscription for Azure resources.
 func SubscriptionID() string {
 	return subscriptionID
+}
+
+func ManagementGroupId() string {
+	return managementGroupId
 }
 
 // deprecated: use DefaultLocation() instead
