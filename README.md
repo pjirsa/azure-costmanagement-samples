@@ -31,6 +31,8 @@ export AZURE_BASE_GROUP_NAME=azure-samples-go
 export AZURE_KEEP_SAMPLE_RESOURCES=0
 ```
 
+To use devicelogin authentication, [follow these instructions](./docs/devicelogin.md)
+
 ## Resources
 
 - SDK code is at [Azure/azure-sdk-for-go][].
