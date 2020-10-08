@@ -27,6 +27,7 @@ var (
 	baseGroupName          string
 	userAgent              string
 	environment            *azure.Environment
+	managementGroupID      string
 )
 
 // ClientID is the OAuth client ID.
@@ -47,6 +48,10 @@ func TenantID() string {
 // SubscriptionID is a target subscription for Azure resources.
 func SubscriptionID() string {
 	return subscriptionID
+}
+
+func ManagementGroupID() string {
+	return managementGroupID
 }
 
 // deprecated: use DefaultLocation() instead
