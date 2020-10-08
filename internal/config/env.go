@@ -29,11 +29,6 @@ func ParseEnvironment() error {
 		log.Printf("invalid value specified for AZURE_USE_DEVICEFLOW, disabling\n")
 		useDeviceFlow = false
 	}
-	keepResources, err = strconv.ParseBool(os.Getenv("AZURE_SAMPLES_KEEP_RESOURCES"))
-	if err != nil {
-		log.Printf("invalid value specified for AZURE_SAMPLES_KEEP_RESOURCES, discarding\n")
-		keepResources = false
-	}
 
 	// these must be provided by environment
 	// clientID
@@ -47,6 +42,8 @@ func ParseEnvironment() error {
 
 	// subscriptionID (ARM)
 	subscriptionID = os.Getenv("AZURE_SUBSCRIPTION_ID")
+
+	managementGroupID = os.Getenv("AZURE_MANAGEMENTGROUP_ID")
 
 	return nil
 }
