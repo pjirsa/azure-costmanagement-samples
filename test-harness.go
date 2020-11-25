@@ -32,13 +32,13 @@ func ListRoleAssignments(ctx context.Context, scope string) {
 	resp, err := authorization.RoleAssignmentsListByScope(ctx, scope)
 
 	if err != nil {
-		fmt.Println("Error while getting list of role definitions", err)
+		fmt.Println("Error while getting list of role assignments", err)
 		return
 	}
 
 	result, _ := json.Marshal(resp.Values())
 
-	fmt.Println("List of role definitions")
+	fmt.Println("List of role assignments")
 	fmt.Println(string(result))
 }
 
