@@ -25,6 +25,7 @@ func main() {
 	ListExports(ctx, scope)
 }
 
+// ListExports - Get a list of configured billing exports at scope
 func ListExports(ctx context.Context, scope string) {
 	resp, err := export.List(ctx, scope)
 
@@ -39,6 +40,7 @@ func ListExports(ctx context.Context, scope string) {
 	fmt.Println(string(result))
 }
 
+// GetExport - Get an individual export details
 func GetExport(ctx context.Context, scope, exportName string) {
 	resp, err := export.Get(ctx, scope, exportName)
 
@@ -52,6 +54,7 @@ func GetExport(ctx context.Context, scope, exportName string) {
 	fmt.Println(string(result))
 }
 
+// DeleteExport - Remove an export definition
 func DeleteExport(ctx context.Context, scope, exportName string) {
 	_, err := export.Delete(ctx, scope, exportName)
 
@@ -63,6 +66,7 @@ func DeleteExport(ctx context.Context, scope, exportName string) {
 	fmt.Println("Deleted export")
 }
 
+// CreateExport - create new export definition
 func CreateExport(ctx context.Context, scope, exportName string) {
 	resp, err := export.CreateOrUpdate(ctx, scope, exportName, CreateExportPreparer())
 
