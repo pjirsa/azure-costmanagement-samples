@@ -19,8 +19,8 @@ func main() {
 	ctx, cancel := context.WithTimeout(context.Background(), 6000*time.Second)
 	defer cancel()
 
-	//scope := "subscriptions/" + config.SubscriptionID()
-	scope := fmt.Sprintf("/providers/Microsoft.Management/managementGroups/%s", config.ManagementGroupID())
+	scope := "subscriptions/" + config.SubscriptionID()
+	//scope := fmt.Sprintf("/providers/Microsoft.Management/managementGroups/%s", config.ManagementGroupID())
 
 	ListExports(ctx, scope)
 }
