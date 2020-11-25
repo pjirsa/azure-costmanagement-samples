@@ -8,6 +8,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/profiles/latest/costmanagement/mgmt/costmanagement"
 	"github.com/pjirsa/azure-costmanagement-samples/export"
+	"github.com/pjirsa/azure-costmanagement-samples/authorization"
 	"github.com/pjirsa/azure-costmanagement-samples/internal/config"
 )
 
@@ -23,6 +24,22 @@ func main() {
 	//scope := fmt.Sprintf("/providers/Microsoft.Management/managementGroups/%s", config.ManagementGroupID())
 
 	ListExports(ctx, scope)
+	ListRoleAssignments(ctx, scope)
+}
+
+// ListRoleAssignments - List role assignments for scope
+func ListRoleAssignments(ctx context.Context, scope string) {
+	resp, err := authorization.RoleAssignmentsListByScope(ctx, scope)
+
+	if err != nil {
+		fmt.Println("Error while getting list of role definitions", err)
+		return
+	}
+
+	result, _ := json.Marshal(resp.Values())
+
+	fmt.Println("List of role definitions")
+	fmt.Println(string(result))
 }
 
 // ListExports - Get a list of configured billing exports at scope
