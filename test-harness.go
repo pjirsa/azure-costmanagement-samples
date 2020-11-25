@@ -81,7 +81,9 @@ func CreateExport(ctx context.Context, scope, exportName string) {
 	fmt.Println(result)
 }
 
+// CreateExportPreparer - Creates definition for export
 func CreateExportPreparer() (result costmanagement.Export) {
 
+	// todo: create export definition here
 	return
 }
